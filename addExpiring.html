@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="example"></div>
+<script>
+    window.onload = function() {
+
+        function number_to(id, from, to, duration) {
+            var element = document.getElementById(id);
+            var start = new Date().getTime();
+            setTimeout(function() {
+                var now = (new Date().getTime()) - start;
+                var progress = now / duration;
+                var result = Math.floor((to - from) * progress + from);
+                element.innerHTML = progress < 1 ? result : to;
+                if (progress < 1) setTimeout(arguments.callee, 10);
+            }, 10);
+        }
+        number_to("example", 1, 1000, 10000000);
+
+    };
+</script>
+</body>
+</html>

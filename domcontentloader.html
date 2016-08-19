@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var script = document.createElement('script');
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"
+    document.body.appendChild(script);
+
+    script.onload = function() {
+        // после выполнения скрипта становится доступна функция _
+        alert( 'загрузился скрипт'); // её код
+    };
+
+//    function ready() {
+//        alert( 'DOM готов' );
+//        alert( "Размеры картинки: " + img.offsetWidth + "x" + img.offsetHeight );
+//    }
+//
+//    document.addEventListener("DOMContentLoaded", ready);
+</script>
+
+<img id="img" src="https://js.cx/clipart/yozhik.jpg?speed=1">
+
+<!--Событие onDOMContentLoaded срабатывает при загрузке документа, после выполнения всех тегов SCRIPT.-->
+
+<!--В отличие от window.onload, оно не ждёт загрузки дополнительных ресурсов, поэтому наступает гораздо раньше.-->
+
+<!--Иными словами событие DOMContentLoaded возникает тогда, когда все тэги HTML (включая тэги script) уже проанализированы-->
+<!--и дерево DOM построено, но еще скорее всего не загружены все картинки и асинхронные скрипты. Как только все картинки и все-->
+<!--асинхронные скрипты будут в итоге загружены наконец наступает событие window.onload.-->
+</body>
+</html>
